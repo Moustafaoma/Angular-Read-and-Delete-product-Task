@@ -1,0 +1,37 @@
+<br><br>
+
+<div class="container mt-4">
+  <div class="row g-3"> <!-- 'g-3' class added for gap -->
+    <div class="col-lg-3 col-md-4 col-6" *ngFor="let p of FilteredList">
+      <div class="card h-100" style="padding: 10px;" [ngStyle]="{'background-color': p.stock === 1 ? 'yellow' : 'white'}" appHostListner>
+        <img [src]="p.images[0]" class="card-img-top" style="height: 150px; object-fit: cover;" alt="Product Image">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{p.title}}</h5>
+          <p class="card-text">{{p.description}}</p>
+          <p>Price: {{p.price | currency}}</p>
+          <p>Discount Percentage: {{p.discountPercentage}}%</p>
+          <p>Rating: {{p.rating}}</p>
+          <p>
+            Stock: 
+            {{ p.stock === 1 ? 'Last item' : (p.stock === 0 ? 'Out of stock' : p.stock) }}
+          </p>
+          
+
+          <div class="mt-auto"> <!-- Aligns Buy button to bottom -->
+            <input type="number" class="form-control mb-3" style="width: 100px; height: 30px;" 
+                   #itemcount [min]="p.stock === 1 ? 1 : 0" [max]="p.stock">
+            <button class="btn btn-dark w-100" (click)="Buy(itemcount.value, p.price, p)">Buy</button>
+          </div>
+          
+          <!-- See More button -->
+          <div class="text-center mt-3 d-flex justify-content-center">
+            <button class="btn btn-info mr-2" (click)="OpenProdDetails(p.id)">See More..</button>
+              <button class="btn btn-danger ms-3" (click)="deleteById(p.id)">Delete </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <h2 class="mt-3">Total Price: {{ OrderPrice | currency }}</h2> -->
+</div>

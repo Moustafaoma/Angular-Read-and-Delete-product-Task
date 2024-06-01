@@ -1,0 +1,12 @@
+<div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+  <div class="text-center">
+    <img [src]="img.Paths[currentIndex]" alt="Image" class="img-fluid mb-3" style="max-width: 500px; height: 400px;">
+
+    <div class="btn-group d-flex flex-wrap" role="group" aria-label="Control buttons">
+      <button type="button" class="btn btn-primary flex-grow-1 mb-2" (click)="previous()">Previous</button>
+      <button type="button" class="btn btn-primary flex-grow-1 mb-2" (click)="next()">Next</button>
+      <button type="button" class="btn btn-primary flex-grow-1 mb-2" (click)="stop()">Stop</button>
+      <button type="button" class="btn btn-primary flex-grow-1 mb-2" (click)="play()">Play</button>
+    </div>
+  </div>
+</div>

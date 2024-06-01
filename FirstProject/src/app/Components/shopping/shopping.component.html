@@ -1,0 +1,29 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3 mb-4" *ngFor="let u of users">
+        <div class="card small-card border-primary shadow">
+          <img [src]="u.image" class="card-img-top" alt="User Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ u.firstName }} {{ u.lastName }}</h5>
+            <p class="card-text">Age: {{ u.age }}</p>
+            <p class="card-text">Gender: {{ u.gender }}</p>
+            <p class="card-text">Email: {{ u.email }}</p>
+            <p class="card-text">Phone: {{ u.phone }}</p>
+            <p class="card-text">Username: {{ u.username }}</p>
+            <p class="card-text">Birth Date: {{ u.birthDate }}</p>
+            <p class="card-text">Blood Group: {{ u.bloodGroup }}</p>
+            <p class="card-text">Height: {{ u.height }} cm</p>
+            <p class="card-text">Weight: {{ u.weight }} kg</p>
+            <p class="card-text">Eye Color: {{ u.eyeColor }}</p>
+            <p class="card-text">Hair Color: {{ u.hair.color }}</p>
+            <p class="card-text">Hair Type: {{ u.hair.type }}</p>
+            <div class="mt-3">
+              <button class="btn btn-danger me-2" (click)="Delete(u.id)">Delete</button>
+              <button class="btn btn-primary" (click)="OpenUserDetails(u.id)">View Data</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

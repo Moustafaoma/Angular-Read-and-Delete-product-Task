@@ -1,0 +1,11 @@
+<select class="form-select" aria-label="Default select example" style="width: 500px;"[(ngModel)]="selectedId">
+  <option disabled selected>--Select Category--</option>
+    <option value="0" >All Products</option>
+    <option *ngFor="let category of Category" [value]="category.id">{{category.name}}</option>
+
+  </select>
+  <hr>
+  
+  <app-order [SendedId]="selectedId" (totalPrice)="OnTotalPrice($event)"> </app-order>
+  <hr>
+     <h2 class="mt-3">Total Price: {{ Total | currency }}</h2> 
